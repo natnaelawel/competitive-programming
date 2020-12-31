@@ -4,10 +4,6 @@ function triangle(number) {
     for (let hash = 1; hash <= i ; hash++) {
       line += "*";
     }
-    for(let space = number - i; space > 0; space--){
-        line += " "
-    }
-
     console.log(`${line}`);
   }
 }
