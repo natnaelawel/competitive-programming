@@ -66,10 +66,10 @@ function multiply(number1, number2) {
     for (let m = 0; m < result.length; m++) {
         console.log(result[m])
         finalResult = sumPostive(finalResult, `${result[m]}`)
-        console.log(finalResult, ' is final result')
     }
+    if(finalResult[0] === "0")return "0";
     return isNegative ? '-' + finalResult : finalResult;
 }
 
-console.log(multiply("-1234", "-567"))
+console.log(multiply("-1234", "0"))
 
