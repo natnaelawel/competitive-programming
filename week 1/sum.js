@@ -23,3 +23,4 @@ function sumPostive(number1, number2) {
   return result;
 }
 console.log(sumPostive("99209", "803"));
+console.log(sumPostive("61700", "7404"));
