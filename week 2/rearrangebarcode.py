@@ -16,7 +16,6 @@ def rearrange_barcodes(barcodes):
     else: 
         last_item = None
 
-    
     result = []
     result_dict = dict()
     for i in barcodes: 
@@ -24,26 +23,28 @@ def rearrange_barcodes(barcodes):
             result_dict[i] += 1
         else: 
             result_dict[i] = 1
-    result_dict = dict(sorted(result_dict.items(), key=lambda x:x[0]))
-    barcodes = sorted(barcodes)
-    print(result_dict, last_item)
-    for k, v in result_dict.items():
-        nextIndex = result_dict[k]  #2
-        nextItem = barcodes[nextIndex] #1
-        while v > 0:
-            if k != last_item: 
-                rearranged_list.append(k)
-                last_item = k 
-                nextItem = barcodes[nextIndex]
-                v -= 1
 
-            elif result_dict[nextItem] > 0:
-                rearranged_list.append(nextItem)
-                last_item = nextItem
-                result_dict[nextItem] -= 1
-            else: 
-                v -= 1
-        
+    result_dict_array = []
+    for a,b in result_dict.items():
+        result_dict_array.append([a,b])
+    rearranged_list = [0]*len(barcodes)
+    result_dict_array = sorted(result_dict_array,key=lambda v:v[1])
+    i = 0
+    while i <len(rearranged_list):
+        rearranged_list[i] = result_dict_array[-1][0]
+        result_dict_array[-1][1]-=1
+        if result_dict_array[-1][1]==0:
+            result_dict_array.pop()
+        i+=2
+    i=1
+    while i < len(rearranged_list):
+        rearranged_list[i] = result_dict_array[-1][0]
+        result_dict_array[-1][1]-=1
+        if result_dict_array[-1][1]==0:
+            result_dict_array.pop()
+        i+=2
+
+   
     return rearranged_list
 barcodes = [1,1,1,2,2,2]
 barcodes = [1,1,1,1,2,2,3,3]
