@@ -9,21 +9,20 @@ class Solution:
     def numComponents(self, head: ListNode, G: List[int]) -> int:
         current = head
         i = 0
-        result = []
+        outer = []
         inner = []
         while current:
             if current.val in G:
                 inner.append(current.val)
             else:
                 if len(inner):
-                    result.append(inner)
+                    outer.append(inner)
                 inner = []
-            if current:
-                current = current.next
+            current = current.next
             i += 1
         if inner:
-            result.append(inner)
-        return len(result)  
+            outer.append(inner)
+        return len(outer) 
         
 sol = Solution()
 e = ListNode(4)
