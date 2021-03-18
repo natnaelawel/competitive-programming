@@ -11,6 +11,8 @@ class Solution:
         i = 0
         outer = []
         inner = []
+        G = set(G)
+        print(G)
         while current:
             if current.val in G:
                 inner.append(current.val)
