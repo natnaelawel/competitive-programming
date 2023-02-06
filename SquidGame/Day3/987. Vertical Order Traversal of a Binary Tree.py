@@ -7,13 +7,10 @@ class TreeNode:
 from collections import defaultdict, deque
 from typing import List, Optional
 
-
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         vertical_vals = defaultdict(list)
-        
         queue = deque([(root, 0, 0)])
-        
         while queue:
             size = len(queue)
             level_vals = defaultdict(list)
@@ -25,7 +22,6 @@ class Solution:
                 if node.left:
                     nr, nc = r + 1, c - 1
                     queue.append((node.left, nr, nc))
-
                 if node.right:
                     nr, nc = r + 1, c + 1
                     queue.append((node.right, nr, nc))
