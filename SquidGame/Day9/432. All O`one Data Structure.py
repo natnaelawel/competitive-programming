@@ -1,5 +1,5 @@
 from collections import defaultdict
-from heapq import heappop, heappush, heappushpop
+from heapq import heappop, heappush
 
 class AllOne:
     def __init__(self):
